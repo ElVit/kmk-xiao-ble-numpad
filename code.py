@@ -36,7 +36,7 @@ TO_BT = KC.MO(LYR_BT)
 
 # KEYMAPS
 keyboard.keymap = [
-  # STADTRAT LAYER
+  # STANDARD LAYER
   [
     KC.MUTE, KC.PSLS, tbdtbd,  TO_BT,
     KC.BSPC, KC.P8,   KC.PAST, KC.PMNS,
