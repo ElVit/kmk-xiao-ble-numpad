@@ -13,14 +13,14 @@ from kmk.hid import HIDModes
 
 # KEYTBOARD SETUP
 keyboard = KMKKeyboard()
-layers = Layers()
+layer_ext = Layers()
 encoder_handler = EncoderHandler()
-keyboard.modules = [layers, encoder_handler]
+keyboard.modules = [layer_ext, encoder_handler]
 
-mediaKeys = MediaKeys()
-statusLED = statusLED(led_pins=[board.LED])
+mediakeys_ext = MediaKeys()
+statusled_ext = statusLED(led_pins=[board.LED_GREEN])
 
-keyboard.extensions = [mediaKeys, statusLED]
+keyboard.extensions = [mediakeys_ext, statusled_ext]
 
 # SWITCH MATRIX
 keyboard.col_pins = (board.D10,board.D9,board.D8,board.D7,)
@@ -41,12 +41,14 @@ LYR_STD, LYR_FN = 0, 1
 TO_STD = KC.DF(LYR_STD)
 TO_FN = KC.MO(LYR_FN)
 
+# keyboard.debug_enabled = True
+
 # KEYMAPS
 keyboard.keymap = [
 
   # STANDARD LAYER
   # .---------------------------.
-  # |  ENC | XIAO | CALC |  FN  |
+  # |  ENC | XIAO | CALC |  FN  |   --> Holding FN will activate the Function Layer
   # |------+------+------+------|
   # |  DEL |   /  |   *  |   -  |
   # |------+------+------+------|
@@ -74,19 +76,19 @@ keyboard.keymap = [
   # | BOOT |      |      | HID  |   --> Change between USB and BLE Mode
   # |------+------+------+------|
   # |      |      |      |  BT  |
-  # |------+------+------+      |   --> Previous BLE connection
+  # |------+------+------+      |   --> Previous BLE connection [KC.BT_PRV]
   # |      |      |      | PREV |
   # |------+------+------+------|
   # |      |      |      |  BT  |
-  # |------+------+------|      |   --> Next BLE connection
+  # |------+------+------|      |   --> Next BLE connection [KC.BT_NXT]
   # |    BT-CLR   |      | NEXT |
   # '---------------------------'
-  #        '-> Clear BLE connection
+  #        '-> Clear BLE connection [KC.BT_CLR]
   [
+    _______,   _______,   _______,   KC.BLE_REFRESH,
+    KC.RESET,  _______,   _______,   KC.HID,
     _______,   _______,   _______,   _______,
-    _______,   KC.RESET,  _______,   _______,
     _______,   _______,   _______,   _______,
-    _______,   _______,   _______,   KC.HID,
     _______,   _______,   _______,   _______,
   ]
 ]
