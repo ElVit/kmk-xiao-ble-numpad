@@ -130,3 +130,5 @@ dmypy.json
 
 # custom
 kmk/
+.DS_Store
+.vscode
