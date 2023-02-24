@@ -76,14 +76,14 @@ keyboard.keymap = [
   # | BOOT |      |      | HID  |   --> Change between USB and BLE Mode
   # |------+------+------+------|
   # |      |      |      |  BT  |
-  # |------+------+------+      |   --> Previous BLE connection [KC.BT_PRV]
+  # |------+------+------+      |   --> Previous BLE connection [KC.BT_PRV] (is not implemented in kmk firmware yet)
   # |      |      |      | PREV |
   # |------+------+------+------|
   # |      |      |      |  BT  |
-  # |------+------+------|      |   --> Next BLE connection [KC.BT_NXT]
+  # |------+------+------|      |   --> Next BLE connection [KC.BT_NXT] (is not implemented in kmk firmware yet)
   # |    BT-CLR   |      | NEXT |
   # '---------------------------'
-  #        '-> Clear BLE connection [KC.BT_CLR]
+  #        '-> Clear BLE connection [KC.BT_CLR]  (is not implemented in kmk firmware yet)
   [
     _______,   _______,   _______,   KC.BLE_REFRESH,
     KC.RESET,  _______,   _______,   KC.HID,
